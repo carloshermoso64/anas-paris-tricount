@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 
-export default function PaymentSuccess({
+export default async function PaymentSuccess({
   searchParams,
 }: {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams: Awaited<Promise<Record<string, string | string[] | undefined>>>;
 }) {
   if (!searchParams || typeof searchParams !== "object") {
     return notFound();
