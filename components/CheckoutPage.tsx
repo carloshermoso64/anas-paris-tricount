@@ -51,9 +51,10 @@ const CheckoutPage = ({amount}: Readonly<{ amount: number }>) => {
             elements,
             clientSecret,
             confirmParams: {
-                return_url: `http://localhost:3000/payment-success?amount=${amount}`,
+                return_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment-success?amount=${amount}`,
             },
         });
+        
 
         if (error) { 
             setErrorMessage(error.message);
